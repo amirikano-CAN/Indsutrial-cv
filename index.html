@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amyr Labidi - Industrial Designer CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              slate: {
+                850: '#1e293b',
+                900: '#0f172a',
+                950: '#020617', 
+              },
+              technical: {
+                50: '#f9fafb',
+                100: '#f3f4f6',
+                500: '#6b7280', // muted text
+                900: '#111827', // deep black
+              }
+            },
+            spacing: {
+              'a4-w': '210mm',
+              'a4-h': '297mm',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
+      
+      body {
+        background-color: #e5e5e5; /* darker bg to make the paper pop */
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Print styles to ensure A4 fidelity */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+
+        body {
+          background-color: white !important;
+          margin: 0;
+          padding: 0;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        #root {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+        }
+
+        .print-container {
+          box-shadow: none !important;
+          margin: 0 !important;
+          max-width: 210mm !important;
+          width: 210mm !important;
+          min-height: 297mm !important;
+          padding: 15mm !important; /* Premium margins for PDF */
+          overflow: visible !important;
+        }
+
+        .no-print, button {
+          display: none !important;
+        }
+
+        a {
+          text-decoration: none !important;
+          color: inherit !important;
+        }
+
+        /* Enforce page break logic */
+        section {
+          page-break-inside: auto;
+        }
+        
+        h1, h2, h3, h4, p {
+          color: #000 !important;
+          text-rendering: optimizeLegibility;
+        }
+
+        /* Optimize grey text for print readability */
+        .text-gray-400, .text-gray-500 {
+           color: #555 !important;
+        }
+
+        /* Prevent awkward breaks */
+        .break-inside-avoid {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+        }
+        
+        img {
+          print-color-adjust: exact;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
