@@ -39,38 +39,36 @@
       @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap');
       
       body {
-        background-color: #e5e5e5; /* darker bg to make the paper pop */
+        background-color: #e5e5e5;
         -webkit-font-smoothing: antialiased;
       }
 
-      /* Print styles to ensure A4 fidelity */
       @media print {
         @page {
           size: A4;
-          margin: 0;
+          margin: 10mm; /* Narrower margins for professional content density */
         }
 
         body {
           background-color: white !important;
-          margin: 0;
-          padding: 0;
+          margin: 0 !important;
+          padding: 0 !important;
           -webkit-print-color-adjust: exact !important;
           print-color-adjust: exact !important;
         }
 
         #root {
-          width: 100%;
-          margin: 0;
-          padding: 0;
+          width: 100% !important;
+          margin: 0 !important;
         }
 
         .print-container {
           box-shadow: none !important;
           margin: 0 !important;
-          max-width: 210mm !important;
-          width: 210mm !important;
-          min-height: 297mm !important;
-          padding: 15mm !important; /* Premium margins for PDF */
+          padding: 0 !important; /* Let @page handle margins */
+          width: 100% !important;
+          max-width: none !important;
+          min-height: 0 !important;
           overflow: visible !important;
         }
 
@@ -78,34 +76,35 @@
           display: none !important;
         }
 
-        a {
-          text-decoration: none !important;
-          color: inherit !important;
+        /* Prevent large name from being too wide/tall on A4 */
+        .print-name {
+          font-size: 64pt !important;
+          line-height: 0.9 !important;
         }
 
-        /* Enforce page break logic */
         section {
-          page-break-inside: auto;
+          page-break-inside: avoid;
+          display: block;
         }
-        
-        h1, h2, h3, h4, p {
+
+        /* Ensure monochrome fidelity */
+        h1, h2, h3, h4, p, li, span {
           color: #000 !important;
-          text-rendering: optimizeLegibility;
         }
 
-        /* Optimize grey text for print readability */
-        .text-gray-400, .text-gray-500 {
-           color: #555 !important;
+        .text-gray-300, .text-gray-400 {
+           color: #999 !important;
         }
 
-        /* Prevent awkward breaks */
-        .break-inside-avoid {
-          break-inside: avoid !important;
-          page-break-inside: avoid !important;
+        .text-gray-500, .text-gray-600 {
+           color: #444 !important;
         }
-        
+
         img {
-          print-color-adjust: exact;
+          max-height: 40mm !important; /* Scale down project images for print */
+          width: auto !important;
+          margin-left: auto;
+          margin-right: auto;
         }
       }
     </style>
