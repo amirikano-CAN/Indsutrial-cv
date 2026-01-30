@@ -23,13 +23,9 @@
               technical: {
                 50: '#f9fafb',
                 100: '#f3f4f6',
-                500: '#6b7280', // muted text
-                900: '#111827', // deep black
+                500: '#6b7280', 
+                900: '#111827', 
               }
-            },
-            spacing: {
-              'a4-w': '210mm',
-              'a4-h': '297mm',
             }
           },
         },
@@ -45,66 +41,54 @@
 
       @media print {
         @page {
-          size: A4;
-          margin: 10mm; /* Narrower margins for professional content density */
+          size: auto; /* Handles both A4 and Letter (8.5x11) naturally */
+          margin: 10mm; 
         }
 
         body {
           background-color: white !important;
           margin: 0 !important;
           padding: 0 !important;
-          -webkit-print-color-adjust: exact !important;
-          print-color-adjust: exact !important;
         }
 
         #root {
           width: 100% !important;
-          margin: 0 !important;
         }
 
         .print-container {
           box-shadow: none !important;
           margin: 0 !important;
-          padding: 0 !important; /* Let @page handle margins */
+          padding: 0 !important;
           width: 100% !important;
           max-width: none !important;
-          min-height: 0 !important;
-          overflow: visible !important;
         }
 
-        .no-print, button {
+        .no-print {
           display: none !important;
         }
 
-        /* Prevent large name from being too wide/tall on A4 */
-        .print-name {
-          font-size: 64pt !important;
-          line-height: 0.9 !important;
+        section {
+          margin-bottom: 8mm !important;
+          page-break-inside: auto;
         }
 
-        section {
-          page-break-inside: avoid;
+        .break-inside-avoid {
+          page-break-inside: avoid !important;
           display: block;
         }
 
-        /* Ensure monochrome fidelity */
+        /* Typography fixes for ink and density */
         h1, h2, h3, h4, p, li, span {
           color: #000 !important;
         }
 
-        .text-gray-300, .text-gray-400 {
-           color: #999 !important;
-        }
-
-        .text-gray-500, .text-gray-600 {
-           color: #444 !important;
-        }
+        .text-gray-300 { color: #bbb !important; }
+        .text-gray-400 { color: #888 !important; }
 
         img {
-          max-height: 40mm !important; /* Scale down project images for print */
-          width: auto !important;
-          margin-left: auto;
-          margin-right: auto;
+          max-height: 45mm !important; /* Smaller but clear for 3-4 page goal */
+          width: 100% !important;
+          object-fit: cover !important;
         }
       }
     </style>

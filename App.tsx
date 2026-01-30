@@ -19,10 +19,9 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center py-8 md:py-12 px-0 sm:px-6 print:p-0 print:block bg-[#F4F4F4]">
       
-      {/* Print Trigger */}
       <button 
         onClick={handlePrint}
-        className="fixed bottom-6 right-6 md:bottom-12 md:right-12 bg-black text-white p-4 md:p-5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all print:hidden z-50 flex items-center gap-4 group"
+        className="fixed bottom-6 right-6 md:bottom-12 md:right-12 bg-black text-white p-4 md:p-5 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all no-print z-50 flex items-center gap-4 group"
         aria-label="Export to PDF"
       >
         <Printer size={18} strokeWidth={1.5} />
@@ -31,14 +30,8 @@ const App: React.FC = () => {
         </span>
       </button>
 
-      {/* Signature Container (A4) */}
-      <main className="print-container w-full max-w-[210mm] bg-white p-6 sm:p-12 md:p-[20mm] lg:p-[25mm] print:p-[15mm] mx-auto min-h-screen md:min-h-[297mm] shadow-none md:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] print:shadow-none relative overflow-hidden">
-        
-        {/* Registration Marks */}
-        <div className="hidden md:block absolute top-8 left-8 w-8 h-[0.5px] bg-black/10"></div>
-        <div className="hidden md:block absolute top-8 left-8 w-[0.5px] h-8 bg-black/10"></div>
-        <div className="hidden md:block absolute top-8 right-8 w-8 h-[0.5px] bg-black/10"></div>
-        <div className="hidden md:block absolute top-8 right-8 w-[0.5px] h-8 bg-black/10"></div>
+      {/* Main Container - Print version has 0 padding to allow @page margins to work */}
+      <main className="print-container w-full max-w-[210mm] bg-white p-6 sm:p-12 md:p-[20mm] lg:p-[25mm] print:p-0 mx-auto min-h-screen shadow-none md:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] relative overflow-hidden">
         
         <Header 
           name={cvData.name}
@@ -51,12 +44,11 @@ const App: React.FC = () => {
           <Skills categories={cvData.skillCategories} />
           <Certifications items={cvData.certifications} />
           <Experience items={cvData.experience} />
-          <Projects items={projectItemsWithImages} />
+          <Projects items={cvData.projects} />
           <Education items={cvData.education} />
         </div>
 
-        {/* Technical Footer */}
-        <footer className="mt-20 md:mt-32 pt-6 border-t-[0.5px] border-black flex flex-col md:flex-row justify-between items-start md:items-end text-[8px] font-mono uppercase tracking-[0.4em] text-gray-300 print:mt-12 break-inside-avoid gap-4 md:gap-0">
+        <footer className="mt-16 md:mt-32 pt-6 border-t-[0.5px] border-black flex flex-col md:flex-row justify-between items-start md:items-end text-[8px] font-mono uppercase tracking-[0.4em] text-gray-300 print:mt-10 break-inside-avoid gap-4 md:gap-0">
           <div className="space-y-1">
             <p>DOCUMENT_STATUS: AUTHENTICATED</p>
             <p>SERIAL_REF: {cvData.name.split(' ')[1].toUpperCase()}-ID-V4.0</p>
@@ -66,14 +58,11 @@ const App: React.FC = () => {
 
       </main>
 
-      <div className="mt-8 mb-8 text-gray-400 font-mono text-[10px] uppercase tracking-widest opacity-40 print:hidden hidden md:block">
-        Standard A4 Format (210mm × 297mm)
+      <div className="mt-8 mb-8 text-gray-400 font-mono text-[10px] uppercase tracking-widest opacity-40 no-print hidden md:block">
+        Format Optimized for A4 / Letter
       </div>
     </div>
   );
 };
-
-// Map projects to ensure images work correctly
-const projectItemsWithImages = cvData.projects;
 
 export default App;

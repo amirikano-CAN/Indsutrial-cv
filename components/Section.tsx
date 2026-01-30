@@ -10,16 +10,17 @@ interface SectionProps {
 
 export const Section: React.FC<SectionProps> = ({ number, title, children, className = "", isLast = false }) => {
   return (
-    <section className={`mb-12 md:mb-16 print:mb-6 ${className}`}>
-      {/* Header with break-after avoidance */}
+    <section className={`mb-10 md:mb-16 print:mb-4 ${className}`}>
       <div 
-        className="flex items-center mb-6 md:mb-8 print:mb-2 border-t-[0.5px] border-black pt-4 print:pt-2 break-inside-avoid"
+        className="flex items-center mb-4 md:mb-8 print:mb-2 border-t-[0.5px] border-black pt-3 print:pt-1"
+        style={{ pageBreakAfter: 'avoid' }}
       >
-        <span className="font-mono text-[10px] text-gray-400 mr-4 md:mr-6 tracking-tighter">SEC_{number}</span>
-        <h2 className="font-display text-[11px] font-bold tracking-[0.3em] uppercase text-black">
+        <span className="font-mono text-[9px] text-gray-400 mr-4 md:mr-6 tracking-tighter">SEC_{number}</span>
+        <h2 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase text-black">
           {title}
         </h2>
       </div>
+      {/* Removed md:pl-20 in print to use full page width and remove large left gap */}
       <div className="pl-0 md:pl-20 print:pl-0">
         {children}
       </div>
