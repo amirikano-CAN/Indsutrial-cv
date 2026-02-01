@@ -65,6 +65,32 @@ export const cvData: CVData = {
     logoUrl: "https://image2url.com/r2/default/images/1769564929334-34e633cb-3742-4b1c-b52b-667752116888.png",
   },
 ],
+  awards: [
+    {
+      project: "FreshNow",
+      recognition: "Instant Freeze Bottle",
+      institution: "Promotech, France",
+      year: "2012"
+    },
+    {
+      project: "Snachair",
+      recognition: "Best Design of the Year",
+      institution: "Favourite Design Awards",
+      year: "2013"
+    },
+    {
+      project: "Snachair",
+      recognition: "Best Design of the Year",
+      institution: "Design & Design Awards",
+      year: "2015"
+    },
+    {
+      project: "Strollon",
+      recognition: "Unconventional Vehicles",
+      institution: "Book publication",
+      year: "2022"
+    }
+  ],
   experience: [
     {
       title: " Industrial Drafting Educator — Industrial & User-Centered Design",

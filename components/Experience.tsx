@@ -8,7 +8,7 @@ interface ExperienceProps {
 
 export const Experience: React.FC<ExperienceProps> = ({ items }) => {
   return (
-    <Section number="03" title="Professional Scope">
+    <Section number="04" title="Professional Scope">
       <div className="flex flex-col">
         {items.map((item, idx) => (
           <div key={idx} className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 border-b-[0.5px] border-gray-100 py-6 md:py-8 print:py-3 first:pt-0 last:border-0 break-inside-avoid">

@@ -46,6 +46,14 @@ export interface CertificationItem {
   logoUrl?: string | null;  // for external image (hosted)
 }
 
+export interface AwardItem {
+  project: string;
+  recognition: string;
+  institution: string;
+  year: string;
+  url?: string;
+}
+
 export interface CVData {
   name: string;
   title: string;
@@ -56,4 +64,5 @@ export interface CVData {
   projects: ProjectItem[];
   education: EducationItem[];
   certifications: CertificationItem[];
+  awards: AwardItem[];
 }

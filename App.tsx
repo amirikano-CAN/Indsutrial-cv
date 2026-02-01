@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "./components/Header";
 import { Skills } from "./components/Skills";
 import { Certifications } from "./components/Certifications";
+import { Awards } from "./components/Awards";
 import { Experience } from "./components/Experience";
 import { Projects } from "./components/Projects";
 import { Education } from "./components/Education";
@@ -43,6 +44,7 @@ const App: React.FC = () => {
         <div className="flex flex-col">
           <Skills categories={cvData.skillCategories} />
           <Certifications items={cvData.certifications} />
+          <Awards items={cvData.awards} />
           <Experience items={cvData.experience} />
           <Projects items={cvData.projects} />
           <Education items={cvData.education} />

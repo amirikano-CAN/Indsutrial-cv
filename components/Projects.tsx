@@ -8,7 +8,7 @@ interface ProjectsProps {
 
 export const Projects: React.FC<ProjectsProps> = ({ items }) => {
   return (
-    <Section number="04" title="Case Studies">
+    <Section number="05" title="Case Studies">
       {/* 2-column grid in print but with tighter spacing to keep items together */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12 md:gap-y-16 print:gap-x-6 print:gap-y-6">
         {items.map((project, idx) => (

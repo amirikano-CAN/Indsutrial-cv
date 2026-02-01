@@ -16,7 +16,7 @@ export const Section: React.FC<SectionProps> = ({ number, title, children, class
         style={{ pageBreakAfter: 'avoid' }}
       >
         <span className="font-mono text-[9px] text-gray-400 mr-4 md:mr-6 tracking-tighter">SEC_{number}</span>
-        <h2 className="font-display text-[10px] font-bold tracking-[0.3em] uppercase text-black">
+        <h2 className="font-display text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase text-black">
           {title}
         </h2>
       </div>
