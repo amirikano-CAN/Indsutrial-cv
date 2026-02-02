@@ -1,14 +1,15 @@
 export interface ContactInfo {
   email: string;
-  linkedin: string;
-  portfolio: string;
+  phone: string;
   location: string;
-  phone?: string;
+  linkedin: string;
+  behance: string;
+  instagram: string;
 }
 
 export interface SkillItem {
   name: string;
-  iconName: string; // We will map this to Lucide icons
+  iconName: string;
 }
 
 export interface SkillCategory {
@@ -42,8 +43,8 @@ export interface CertificationItem {
   issuer: string;
   title: string;
   year: string;
-  logoSlug?: string | null; // for SimpleIcons
-  logoUrl?: string | null;  // for external image (hosted)
+  logoSlug?: string | null;
+  logoUrl?: string | null;
 }
 
 export interface AwardItem {
@@ -54,7 +55,53 @@ export interface AwardItem {
   url?: string;
 }
 
+export type PortfolioCategory = "Industrial" | "Retail" | "Packaging" | "Digital";
+
+export interface ProjectMedia {
+  type: 'image' | 'video';
+  url: string;
+  poster?: string;
+  caption?: string;
+}
+
+export interface PortfolioProject {
+  id: string;
+  title: string;
+  category: PortfolioCategory;
+  year: string;
+  tags: string[];
+  description: string;
+  coverImageUrl: string;
+  media?: ProjectMedia[];
+}
+
+export interface Translations {
+  sections: {
+    awards: string;
+    certifications: string;
+    experience: string;
+    projects: string;
+    skills: string;
+    education: string;
+  };
+  ui: {
+    savePdf: string;
+    systemStatus: string;
+    documentStatus: string;
+    serialRef: string;
+    copyright: string;
+    loc: string;
+    tel: string;
+  };
+}
+
 export interface CVData {
+  config: {
+    roleTitle: string;
+    roleSubtitle: string;
+    systemStatus: string;
+  };
+  translations: Translations;
   name: string;
   title: string;
   summary: string;

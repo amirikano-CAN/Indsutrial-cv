@@ -4,14 +4,16 @@ import { Section } from "./Section";
 
 interface SkillsProps {
   categories: SkillCategory[];
+  title: string;
+  number: string;
 }
 
-export const Skills: React.FC<SkillsProps> = ({ categories }) => {
+export const Skills: React.FC<SkillsProps> = ({ categories, title, number }) => {
   return (
-    <Section number="01" title="Technical Capability">
+    <Section number={number} title={title}>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
         {categories.map((category, idx) => (
-          <div key={idx} className="flex flex-col">
+          <div key={idx} className="flex flex-col break-inside-avoid">
             <h3 className="font-mono text-[9px] uppercase tracking-[0.2em] text-gray-400 mb-4 md:mb-6 flex items-center gap-2">
               <span className="w-1.5 h-1.5 bg-black rounded-full"></span>
               {category.title}

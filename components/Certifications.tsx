@@ -4,11 +4,13 @@ import { Section } from './Section';
 
 interface CertificationsProps {
   items: CertificationItem[];
+  title: string;
+  number: string;
 }
 
-export const Certifications: React.FC<CertificationsProps> = ({ items }) => {
+export const Certifications: React.FC<CertificationsProps> = ({ items, title, number }) => {
   return (
-    <Section number="02" title="Certifications & Professional Validation">
+    <Section number={number} title={title}>
       {/* Tightened grid for print to stop items from jumping across pages with huge gaps */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 print:grid-cols-2 print:gap-x-12 print:gap-y-4">
         {items.map((cert, idx) => (

@@ -4,11 +4,14 @@ import { Section } from './Section';
 
 interface EducationProps {
   items: EducationItem[];
+  title: string;
+  number: string;
+  isLast?: boolean;
 }
 
-export const Education: React.FC<EducationProps> = ({ items }) => {
+export const Education: React.FC<EducationProps> = ({ items, title, number, isLast }) => {
   return (
-    <Section number="06" title="Academic Background" isLast>
+    <Section number={number} title={title} isLast={isLast}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {items.map((edu, idx) => (
           <div key={idx} className="border-l-2 border-gray-200 pl-4 break-inside-avoid">

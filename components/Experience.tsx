@@ -4,11 +4,13 @@ import { Section } from './Section';
 
 interface ExperienceProps {
   items: ExperienceItem[];
+  title: string;
+  number: string;
 }
 
-export const Experience: React.FC<ExperienceProps> = ({ items }) => {
+export const Experience: React.FC<ExperienceProps> = ({ items, title, number }) => {
   return (
-    <Section number="04" title="Professional Scope">
+    <Section number={number} title={title}>
       <div className="flex flex-col">
         {items.map((item, idx) => (
           <div key={idx} className="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-4 border-b-[0.5px] border-gray-100 py-6 md:py-8 print:py-3 first:pt-0 last:border-0 break-inside-avoid">
