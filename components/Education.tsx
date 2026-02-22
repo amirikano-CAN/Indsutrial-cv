@@ -5,13 +5,12 @@ import { Section } from './Section';
 interface EducationProps {
   items: EducationItem[];
   title: string;
-  number: string;
   isLast?: boolean;
 }
 
-export const Education: React.FC<EducationProps> = ({ items, title, number, isLast }) => {
+export const Education: React.FC<EducationProps> = ({ items, title, isLast }) => {
   return (
-    <Section number={number} title={title} isLast={isLast}>
+    <Section title={title} isLast={isLast}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {items.map((edu, idx) => (
           <div key={idx} className="border-l-2 border-gray-200 pl-4 break-inside-avoid">

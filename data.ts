@@ -17,7 +17,8 @@ export const cvDataEn: CVData = {
   config: {
     roleTitle: "Lead Industrial Designer",
     roleSubtitle: "Speculative Fabrication",
-    systemStatus: "System Active: Core_V4"
+    systemStatus: "System Active: Core_V4",
+    signatureUrl: "https://image2url.com/r2/default/images/1771731656348-defac426-8399-44b8-b6f6-983e9b97c896.jpg"
   },
   translations: {
     sections: {
@@ -35,7 +36,10 @@ export const cvDataEn: CVData = {
       serialRef: "SERIAL_REF",
       copyright: "COPYRIGHT",
       loc: "LOC",
-      tel: "TEL"
+      tel: "TEL",
+      skillStatus: "CONFIRMED",
+      exportPdf: "Export to PDF",
+      switchLang: "Switch Language"
     }
   },
   name: "Amyr Labidi",
@@ -75,6 +79,12 @@ export const cvDataEn: CVData = {
     {
       issuer: "Autodesk",
       title: "Autodesk Inventor Certified",
+      year: "2026",
+      logoSlug: "autodesk",
+    },
+    {
+      issuer: "Autodesk",
+      title: "Autodesk AutoCAD Certified",
       year: "2026",
       logoSlug: "autodesk",
     },
@@ -229,7 +239,8 @@ export const cvDataFr: CVData = {
   config: {
     roleTitle: "Designer Industriel Principal",
     roleSubtitle: "Fabrication Spéculative",
-    systemStatus: "Système Actif: Core_V4"
+    systemStatus: "Système Actif: Core_V4",
+    signatureUrl: "https://image2url.com/r2/default/images/1771731656348-defac426-8399-44b8-b6f6-983e9b97c896.jpg"
   },
   translations: {
     sections: {
@@ -247,7 +258,10 @@ export const cvDataFr: CVData = {
       serialRef: "RÉF_SÉRIE",
       copyright: "DROITS",
       loc: "LOC",
-      tel: "TÉL"
+      tel: "TÉL",
+      skillStatus: "CONFIRMÉ",
+      exportPdf: "Exporter en PDF",
+      switchLang: "Changer de langue"
     }
   },
   name: "Amyr Labidi",
@@ -287,6 +301,12 @@ export const cvDataFr: CVData = {
     {
       issuer: "Autodesk",
       title: "Certifié Autodesk Inventor",
+      year: "2026",
+      logoSlug: "autodesk",
+    },
+    {
+      issuer: "Autodesk",
+      title: "Certifié Autodesk AutoCAD",
       year: "2026",
       logoSlug: "autodesk",
     },
@@ -412,7 +432,7 @@ export const cvDataFr: CVData = {
       imageUrl: "https://image2url.com/r2/default/images/1769688228650-6ffe235c-77e6-45c5-82ee-46d7908bf6bb.jpg"
     },
     {
-      title: "Adidas Duo — Deux Rituels. Un Mouvement.",
+      title: "Adidas Duo — Deux Rituels. One Mouvement.",
       tags: ["Style de Vie Sport", "Usage Quotidien"],
       description: "Un système de fragrance modulaire combinant parfum et déodorant.",
       imageUrl: "https://image2url.com/r2/default/images/1769685814596-c470b6ce-0a63-43aa-b8ff-8e55729aa37b.jpg"

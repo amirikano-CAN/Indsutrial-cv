@@ -92,6 +92,9 @@ export interface Translations {
     copyright: string;
     loc: string;
     tel: string;
+    skillStatus: string;
+    exportPdf: string;
+    switchLang: string;
   };
 }
 
@@ -100,6 +103,7 @@ export interface CVData {
     roleTitle: string;
     roleSubtitle: string;
     systemStatus: string;
+    signatureUrl?: string;
   };
   translations: Translations;
   name: string;

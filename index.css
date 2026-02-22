@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-slate-850: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020617;
+  
+  --color-technical-50: #f9fafb;
+  --color-technical-100: #f3f4f6;
+  --color-technical-500: #6b7280;
+  --color-technical-900: #111827;
+}
+
+@layer base {
+  :root {
+    --padding-cv: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --padding-cv: 5rem;
+    }
+  }
+
+  @media print {
+    :root {
+      --padding-cv: 0;
+    }
+  }
+
+  body {
+    background-color: #e5e5e5;
+    -webkit-font-smoothing: antialiased;
+    counter-reset: section;
+  }
+
+  .cv-section {
+    counter-increment: section;
+  }
+
+  .cv-section-number::before {
+    content: "SEC_0" counter(section);
+  }
+
+  @media print {
+    .cv-section-number::before {
+      content: "0" counter(section);
+    }
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;  /* Firefox */
+  }
+}
+
+@layer utilities {
+  @media print {
+    @page {
+      size: auto;
+      margin: 15mm; 
+    }
+
+    body {
+      background-color: white !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    #root {
+      width: 100% !important;
+    }
+
+    .print-container {
+      box-shadow: none !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      max-width: none !important;
+    }
+
+    .no-print, .print-hidden {
+      display: none !important;
+    }
+
+    section {
+      margin-bottom: 6mm !important;
+      page-break-inside: auto;
+    }
+
+    .break-inside-avoid {
+      page-break-inside: avoid !important;
+      display: block;
+    }
+
+    /* Typography fixes for ink and density */
+    h1, h2, h3, h4, p, li, span {
+      color: #000 !important;
+    }
+
+    .text-gray-300 { color: #999 !important; }
+    .text-gray-400 { color: #666 !important; }
+    .text-gray-500 { color: #444 !important; }
+
+    /* Canadian CV style: cleaner headings */
+    h2 {
+      letter-spacing: 0.1em !important;
+      font-size: 11px !important;
+    }
+
+    .cv-section-number {
+      font-size: 8px !important;
+      color: #999 !important;
+    }
+  }
+}

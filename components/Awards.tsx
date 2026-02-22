@@ -6,12 +6,11 @@ import { ArrowUpRight } from 'lucide-react';
 interface AwardsProps {
   items: AwardItem[];
   title: string;
-  number: string;
 }
 
-export const Awards: React.FC<AwardsProps> = ({ items, title, number }) => {
+export const Awards: React.FC<AwardsProps> = ({ items, title }) => {
   return (
-    <Section number={number} title={title}>
+    <Section title={title}>
       <div className="flex flex-col">
         {items.map((item, idx) => (
           <div key={idx} className="flex flex-col md:flex-row md:items-baseline md:justify-between py-2 border-b-[0.5px] border-gray-100 last:border-0 print:py-1 break-inside-avoid group">

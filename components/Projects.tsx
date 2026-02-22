@@ -5,12 +5,11 @@ import { Section } from './Section';
 interface ProjectsProps {
   items: ProjectItem[];
   title: string;
-  number: string;
 }
 
-export const Projects: React.FC<ProjectsProps> = ({ items, title, number }) => {
+export const Projects: React.FC<ProjectsProps> = ({ items, title }) => {
   return (
-    <Section number={number} title={title}>
+    <Section title={title}>
       {/* 2-column grid in print but with tighter spacing to keep items together */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12 md:gap-y-16 print:gap-x-6 print:gap-y-6">
         {items.map((project, idx) => (
@@ -21,6 +20,8 @@ export const Projects: React.FC<ProjectsProps> = ({ items, title, number }) => {
                 <img 
                   src={project.imageUrl} 
                   alt={project.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover mix-blend-multiply opacity-95 group-hover:opacity-100"
                 />
               </div>

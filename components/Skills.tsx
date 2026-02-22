@@ -5,12 +5,12 @@ import { Section } from "./Section";
 interface SkillsProps {
   categories: SkillCategory[];
   title: string;
-  number: string;
+  statusLabel: string;
 }
 
-export const Skills: React.FC<SkillsProps> = ({ categories, title, number }) => {
+export const Skills: React.FC<SkillsProps> = ({ categories, title, statusLabel }) => {
   return (
-    <Section number={number} title={title}>
+    <Section title={title}>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
         {categories.map((category, idx) => (
           <div key={idx} className="flex flex-col break-inside-avoid">
@@ -22,7 +22,7 @@ export const Skills: React.FC<SkillsProps> = ({ categories, title, number }) => 
               {category.skills.map((skill, sIdx) => (
                 <li key={sIdx} className="text-[13px] font-medium text-black font-display tracking-tight flex justify-between group">
                   <span>{skill.name}</span>
-                  <span className="opacity-0 group-hover:opacity-100 transition-opacity font-mono text-[9px] text-gray-300">CONFIRMED</span>
+                  <span className="opacity-0 group-hover:opacity-100 transition-opacity font-mono text-[9px] text-gray-300">{statusLabel}</span>
                 </li>
               ))}
             </ul>

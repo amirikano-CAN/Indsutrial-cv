@@ -67,9 +67,9 @@ const App: React.FC = () => {
 
       {/* MAIN CONTAINER */}
       <motion.main 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4 }}
         className={`
           w-full mx-auto min-h-screen relative overflow-hidden bg-white max-w-7xl
           shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] print:shadow-none print:p-0
@@ -78,18 +78,6 @@ const App: React.FC = () => {
           padding: 'var(--padding-cv)'
         }}
       >
-        <style>{`
-          :root {
-            --padding-cv: 3rem;
-          }
-          @media (min-width: 640px) {
-            :root { --padding-cv: 5rem; }
-          }
-          @media print {
-             :root { --padding-cv: 0; }
-          }
-        `}</style>
-
         {/* HEADER */}
         <div className="mb-12">
           <Header 
@@ -116,7 +104,6 @@ const App: React.FC = () => {
                <Awards 
                   items={activeData.awards} 
                   title={t.sections.awards} 
-                  number="01" 
                 />
             </div>
 
@@ -125,7 +112,6 @@ const App: React.FC = () => {
               <Certifications 
                 items={activeData.certifications} 
                 title={t.sections.certifications} 
-                number="02" 
               />
             </div>
 
@@ -133,15 +119,13 @@ const App: React.FC = () => {
             <Experience 
               items={activeData.experience} 
               title={t.sections.experience} 
-              number="03" 
             />
 
-            {/* 4. PROJECTS */}
-            <div className="mt-4 md:mt-8">
+            {/* 4. PROJECTS - Hidden ONLY in print/PDF */}
+            <div className="mt-4 md:mt-8 print-hidden">
                <Projects 
                 items={activeData.projects} 
                 title={t.sections.projects} 
-                number="04" 
               />
             </div>
 
@@ -150,7 +134,7 @@ const App: React.FC = () => {
                <Skills 
                 categories={activeData.skillCategories} 
                 title={t.sections.skills} 
-                number="05" 
+                statusLabel={t.ui.skillStatus}
               />
             </div>
 
@@ -159,7 +143,6 @@ const App: React.FC = () => {
                <Education 
                 items={activeData.education} 
                 title={t.sections.education} 
-                number="06" 
                 isLast
               />
             </div>

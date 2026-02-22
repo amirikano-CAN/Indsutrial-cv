@@ -7,6 +7,7 @@ interface HeaderProps {
     systemStatus: string;
     roleTitle: string;
     roleSubtitle: string;
+    signatureUrl?: string;
   };
   name: string;
   summary: string;
@@ -30,10 +31,19 @@ export const Header: React.FC<HeaderProps> = ({ config, name, summary, contact, 
         </div>
 
         {/* Name - Scaled for Print density */}
-        <h1 className="font-display font-bold text-[12vw] sm:text-[6rem] md:text-[8rem] lg:text-[9rem] print:text-[5.5rem] leading-[0.85] tracking-tighter uppercase text-black mb-4 md:mb-8 print:mb-2 select-none">
-          <span className="block">{firstName}</span>
-          <span className="block text-gray-300">{lastName}</span>
-        </h1>
+        <div className="relative group inline-block w-full">
+          {config.signatureUrl && (
+            <img 
+              src={config.signatureUrl} 
+              alt="Signature" 
+              className="absolute top-1/2 -translate-y-1/2 right-4 md:right-12 lg:right-24 w-32 md:w-56 h-auto opacity-80 pointer-events-none z-10 print:w-32 print:right-8 mix-blend-multiply -rotate-6"
+            />
+          )}
+          <h1 className="font-display font-bold text-[12vw] sm:text-[6rem] md:text-[8rem] lg:text-[9rem] print:text-[5.5rem] leading-[0.85] tracking-tighter uppercase text-black mb-4 md:mb-8 print:mb-2 select-none">
+            <span className="block">{firstName}</span>
+            <span className="block text-gray-300">{lastName}</span>
+          </h1>
+        </div>
 
         {/* Title */}
         <div className="font-mono text-[10px] sm:text-xs md:text-sm text-black uppercase tracking-[0.2em] md:tracking-[0.3em] border-t border-black pt-4 print:pt-1">
